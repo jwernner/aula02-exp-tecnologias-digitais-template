@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula 02 — Cliente de API (Open-Meteo)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Cliente de API — Open-Meteo</h1>
+      <p class="subtitle">Tecnologias Digitais no Cotidiano: HTTP → JSON → UI</p>
+    </header>
+
+    <section class="card">
+      <h2>Configurar consulta</h2>
+
+      <div class="grid">
+        <label>
+          Latitude
+          <input id="lat" type="number" step="0.0001" value="-23.5505" />
+        </label>
+
+        <label>
+          Longitude
+          <input id="lon" type="number" step="0.0001" value="-46.6333" />
+        </label>
+
+        <label>
+          Timezone
+          <input id="tz" type="text" value="America/Sao_Paulo" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="btnFetch">Buscar clima agora</button>
+        <button id="btnSP">Preset: São Paulo</button>
+        <button id="btnFLN">Preset: Florianópolis</button>
+      </div>
+
+      <p class="hint">
+        Dica: use DevTools → Network para observar a requisição e o JSON retornado.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Resultado</h2>
+
+      <div id="status" class="status idle">Pronto para consultar.</div>
+
+      <div id="result" class="result hidden">
+        <div class="kpi">
+          <div class="kpi-label">Temperatura</div>
+          <div id="temp" class="kpi-value">—</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-label">Vento</div>
+          <div id="wind" class="kpi-value">—</div>
+        </div>
+
+        <div class="kpi">
+          <div class="kpi-label">Horário</div>
+          <div id="time" class="kpi-value">—</div>
+        </div>
+
+        <details class="raw">
+          <summary>Ver JSON bruto (debug)</summary>
+          <pre id="rawJson"></pre>
+        </details>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>UC: Exploração Digital e Fundamentos Tecnológicos — Aula 02</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
